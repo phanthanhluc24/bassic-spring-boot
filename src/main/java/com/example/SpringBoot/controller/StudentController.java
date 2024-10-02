@@ -35,7 +35,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Student>> findStudentById(@PathVariable("id") UUID id){
+    public ResponseEntity<ApiResponse<Student>> findStudentById(@PathVariable("id") Long id){
         return studentService.findById(id)
                 .map(JsonResponse::ok)
                 .orElseThrow(() -> new ApiException(ErrorCode.STUDENT_NOT_EXIT));

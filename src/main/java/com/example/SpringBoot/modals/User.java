@@ -6,28 +6,26 @@ import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
+@Entity
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Builder
-@Entity
-@Table(name = "student")
-public class Student {
+public class User {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Long id;
     @Column(name = "full_name")
     String fullName;
-    @Column(name = "province")
-    String province;
-    @Column(name = "gender")
-    String Gender;
 
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
-    List<Enrollment> enrollments = new ArrayList<>();
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    List<UserCertificate> userCertificates = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    List<AnotherCertificateUser> anotherCertificateUsers = new ArrayList<>();
+
 }

@@ -1,13 +1,13 @@
 package com.example.SpringBoot.repository;
 
 import com.example.SpringBoot.modals.Student;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+public interface IStudentRepository extends JpaRepository<Student,Long> {
+//    List<Student> findAll();
+//    Optional<Student> findById(Long id);
+//    Student save(Student students);
 
-public interface IStudentRepository {
-    List<Student> findAll();
-    Optional<Student> findById(UUID id);
-    Student save(Student students);
+    interface ICertificateRepository {
+    }
 }

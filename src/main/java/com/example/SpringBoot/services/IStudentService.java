@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface IStudentService {
     List<Student> findAll();
-    Optional<Student> findById(UUID id);
+    Optional<Student> findById(Long id);
     Student save(Student student);
 
 
